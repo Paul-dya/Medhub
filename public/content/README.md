@@ -3,14 +3,11 @@
 这里放课程 HTML 文件。**放入这里的文件 = 发布到网站的课程**，
 GitHub 上增删改这里的文件后 push，Vercel 会自动重新构建并发布，导航、目录和搜索索引都会自动更新。
 
-## 目录结构（两大栏目固定）
+## 目录结构（两大栏目）
 
 ```
 content/
 ├── basic-medicine/            基础医学
-│   ├── anatomy/               解剖学（暂无完整知识库，现有一门占位示例课）
-│   ├── physiology/            生理学
-│   ├── biochemistry/          生物化学
 │   ├── pathology/             病理学
 │   ├── micro-immuno/          微生物与免疫（现为医学免疫学完整知识库）
 │   └── pharmacology/          药理学
@@ -20,8 +17,8 @@ content/
 ```
 
 - 第一层目录名固定为 `basic-medicine` / `clinical-medicine`（对应站内两大栏目）。
-- 第二层目录名固定为 6 个基础学科 + `diagnosis` / `imaging`（目录页上的分组标题自动显示中文）。
 - 课程页直接放在第二层目录下，文件名即课程名（中文名可以，URL 自动生成稳定哈希链接，见下方规则）。
+- ⚠️ 本分支（main）**不发布**解剖学、生理学、生物化学三个学科；完整内容保存在仓库 `full` 分支。恢复发布时：从 full 分支取回对应目录 + 在 `lib/site.ts` 加回 subtopics + 在 `scripts/sync-kb.mjs` 加回映射。
 
 ## 从工作区知识库同步（推荐流程）
 

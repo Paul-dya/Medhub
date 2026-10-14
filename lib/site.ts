@@ -3,7 +3,7 @@ export const SITE = {
   domain: 'medhub.work',
   tagline: '医学知识库',
   description:
-    'MedHub 医学知识库：收录基础医学（解剖学、生理学、生物化学、病理学、微生物与免疫、药理学）与临床医学（诊断学、医学影像学）课程知识网页，按学科分类、支持站内搜索，供医学生与医学爱好者学习复习。',
+    'MedHub 医学知识库：收录基础医学（病理学、微生物与免疫、药理学）与临床医学（诊断学、医学影像学）课程知识网页，按学科分类、支持站内搜索，供医学生与医学爱好者学习复习。',
 };
 
 /** 作者小红书主页（全站右下角角标跳转） */
@@ -18,9 +18,10 @@ export type Category = {
 };
 
 /**
- * 站点两大栏目（固定）：
- * 基础医学（二级：解剖学/生理学/生物化学/病理学/微生物与免疫/药理学）
+ * 站点两大栏目：
+ * 基础医学（二级：病理学/微生物与免疫/药理学）
  * 临床医学（二级：诊断学/医学影像学）
+ * 完整版 8 学科内容见仓库 full 分支。
  * 如需调整栏目，修改此数组并同步 public/content/ 目录名。
  */
 export const CATEGORIES: Category[] = [
@@ -28,8 +29,8 @@ export const CATEGORIES: Category[] = [
     slug: 'basic-medicine',
     name: '基础医学',
     icon: '🧬',
-    description: '解剖学、生理学、生物化学、病理学、微生物与免疫、药理学——医学的核心基础学科课程。',
-    subtopics: ['解剖学', '生理学', '生物化学', '病理学', '微生物与免疫', '药理学'],
+    description: '病理学、微生物与免疫、药理学——医学的核心基础学科课程。',
+    subtopics: ['病理学', '微生物与免疫', '药理学'],
   },
   {
     slug: 'clinical-medicine',
@@ -40,7 +41,7 @@ export const CATEGORIES: Category[] = [
   },
 ];
 
-/** 二级目录（子文件夹名 → 中文显示名） */
+/** 二级目录（子文件夹名 → 中文显示名；anatomy/physiology/biochemistry 保留映射，内容在 full 分支） */
 export const SUBCATEGORY_NAMES: Record<string, string> = {
   anatomy: '解剖学',
   physiology: '生理学',

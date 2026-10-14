@@ -21,11 +21,13 @@ const ROOT = process.cwd(); // medhub 根目录
 const WORKSPACE = path.resolve(ROOT, '..'); // 工作区根目录
 const CONTENT_DIR = path.join(ROOT, 'public', 'content');
 
-/** 学科知识库文件夹 → 站点内容目录 的映射 */
+/**
+ * 学科知识库文件夹 → 站点内容目录 的映射。
+ * 注意：main 分支只发布 5 个学科；生理学/生物化学/解剖学（若有）不在映射内，
+ * 完整版本保存在 full 分支。恢复发布某学科时把映射加回来即可。
+ */
 const MAP = [
-  { folder: '21_生理学_知识网页', to: 'basic-medicine/physiology' },
   { folder: '20_病理学_知识网页', to: 'basic-medicine/pathology' },
-  { folder: '17_生物化学知识网页', to: 'basic-medicine/biochemistry' },
   { folder: '16_医学免疫学知识网页', to: 'basic-medicine/micro-immuno' },
   { folder: '15_药理学知识网页', to: 'basic-medicine/pharmacology' },
   { folder: '14_诊断学知识网页', to: 'clinical-medicine/diagnosis' },
