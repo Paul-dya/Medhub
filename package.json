@@ -1,0 +1,23 @@
+{
+  "name": "medhub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MedHub · 面向医学生的基础医学知识库（基础医学 / 诊断学 / 影像学）",
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/build-search-index.mjs",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "^5.8.0"
+  }
+}
