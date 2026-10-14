@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { CATEGORIES } from '@/lib/site';
+import { CATEGORIES, SUBCATEGORY_NAMES } from '@/lib/site';
 import { getLessons } from '@/lib/lessons';
 
 type Params = { params: Promise<{ category: string }> };
@@ -52,7 +52,7 @@ export default async function CoursePage({ params }: Params) {
 
       {groups.map((g) => (
         <section className="lesson-group" key={g.name || '__root__'}>
-          {g.name && <h2>{g.name}</h2>}
+          {g.name && <h2>{SUBCATEGORY_NAMES[g.name] ?? g.name}</h2>}
           <ul className="lesson-list">
             {g.items.map((l, i) => (
               <li key={l.slug.join('/')}>

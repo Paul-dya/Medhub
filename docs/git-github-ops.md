@@ -392,7 +392,7 @@ git switch main        # 回到工作分支
 
 - **触发**：整理好一门新课的 HTML。
 - **操作**：
-  1. 放入 `public\content\<板块>\<子分类>\<课程名>.html`（三大板块目录名固定：`basic-medicine` / `diagnosis` / `imaging`；见 [public/content/README.md](../public/content/README.md)）。
+  1. 放入 `public\content\<栏目>\<学科>\<课程名>.html`（栏目目录名固定：`basic-medicine` / `clinical-medicine`；学科目录名见 [public/content/README.md](../public/content/README.md)。学科知识库更新时直接用 `node scripts/sync-kb.mjs` 一键同步）。
   2. 文件内必须有 `<title>`（列表与搜索显示用）和 `<meta name="description">`（搜索摘要）。
   3. `git add public/content/` → `git commit -m "新增课程：xxx"` → `git push`。
 - **验证**：Vercel Deployments 出现绿色新部署；`/course/<板块>` 出现新条目（计数 +1）；站内搜索能命中。
@@ -470,8 +470,8 @@ git switch main        # 回到工作分支
 
 ### SOP-8 发布前内容审计（push 前 30 秒 checklist）
 
-- [ ] 文件放对了三大板块目录？（不在 `basic-medicine`/`diagnosis`/`imaging` 之外的目录）
-- [ ] 内容属于**基础医学 / 诊断学 / 影像学**范围？（不上传内外妇儿皮肤耳鼻喉）
+- [ ] 文件放对了栏目/学科目录？（`basic-medicine/` 或 `clinical-medicine/` 下的对应学科）
+- [ ] 内容属于**基础医学 6 学科 / 诊断学 / 医学影像学**范围？
 - [ ] 内容是自己有权公开的？（无整段教材原文 / 无扫描教材图）
 - [ ] `<title>` 和 `<meta description>` 写了？
 - [ ] 页内图片用了相对路径且已随文件一起 add？

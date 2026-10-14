@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import './globals.css';
-import { SITE, CATEGORIES, SCOPE_NOTE, MEDICAL_DISCLAIMER } from '@/lib/site';
+import { SITE, XHS_URL, CATEGORIES, MEDICAL_DISCLAIMER } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +25,7 @@ export default function RootLayout({
             <Link href="/" className="brand">
               <span className="brand-mark">✚</span>
               <span className="brand-name">{SITE.name}</span>
-              <span className="brand-sub">基础医学知识库</span>
+              <span className="brand-sub">医学知识库</span>
             </Link>
             <nav className="main-nav">
               <Link href="/">首页</Link>
@@ -45,13 +45,23 @@ export default function RootLayout({
 
         <footer className="site-footer">
           <div className="container">
-            <p>{SCOPE_NOTE}</p>
             <p className="footer-disclaimer">{MEDICAL_DISCLAIMER}</p>
             <p className="footer-copy">
               © {new Date().getFullYear()} {SITE.name} · {SITE.domain} · 仅供医学教育使用
             </p>
           </div>
         </footer>
+
+        <a
+          href={XHS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="xhs-badge"
+          title="小红书主页"
+        >
+          <span className="xhs-icon">📕</span>
+          <span>小红书</span>
+        </a>
       </body>
     </html>
   );

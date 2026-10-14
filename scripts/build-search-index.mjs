@@ -14,8 +14,18 @@ const OUT = path.join(ROOT, 'public', 'search-index.json');
 
 const CATEGORY_LABELS = {
   'basic-medicine': '基础医学',
+  'clinical-medicine': '临床医学',
+};
+
+const SUBCATEGORY_LABELS = {
+  anatomy: '解剖学',
+  physiology: '生理学',
+  biochemistry: '生物化学',
+  pathology: '病理学',
+  'micro-immuno': '微生物与免疫',
+  pharmacology: '药理学',
   diagnosis: '诊断学',
-  imaging: '影像学',
+  imaging: '医学影像学',
 };
 
 /** 与 lib/lessons.ts 的 asciiSlug 保持一致：SSG 路由段必须 ASCII，中文段用稳定哈希 */
@@ -71,6 +81,7 @@ async function collect(dir, rel, out) {
         category: slug[0],
         categoryLabel: CATEGORY_LABELS[slug[0]] ?? slug[0],
         subcategory: slug.length > 2 ? slug[1] : null,
+        subcategoryLabel: slug.length > 2 ? SUBCATEGORY_LABELS[slug[1]] ?? slug[1] : null,
         url: '/lesson/' + slug.map(asciiSlug).join('/'),
         fileUrl: '/content/' + slug.map(encodeURIComponent).join('/') + '.html',
         snippet: (getMeta(html, 'description') || text).slice(0, 200),

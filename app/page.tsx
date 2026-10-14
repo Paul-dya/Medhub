@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CATEGORIES, SCOPE_NOTE, SITE } from '@/lib/site';
+import { CATEGORIES, SITE } from '@/lib/site';
 import { getLessons } from '@/lib/lessons';
 
 export default async function HomePage() {
@@ -11,11 +11,11 @@ export default async function HomePage() {
         <h1>
           {SITE.name}
           <span className="hero-dot"> · </span>
-          基础医学知识库
+          医学知识库
         </h1>
         <p className="hero-desc">
-          基础医学、诊断学与影像学的课程知识网页，按学科分类、一键检索，
-          供医学生与医学爱好者学习、复习。
+          基础医学与临床医学（诊断学 · 医学影像学）课程知识网页，
+          按学科分类、一键检索，供医学生与医学爱好者学习、复习。
         </p>
         <div className="hero-actions">
           <Link href="/search" className="btn btn-primary">
@@ -28,8 +28,8 @@ export default async function HomePage() {
       </section>
 
       <section className="container">
-        <h2 className="section-title">课程板块</h2>
-        <div className="card-grid">
+        <h2 className="section-title">课程栏目</h2>
+        <div className="card-grid card-grid-2">
           {CATEGORIES.map((c) => {
             const count = lessons.filter((l) => l.category === c.slug).length;
             return (
@@ -53,7 +53,6 @@ export default async function HomePage() {
             );
           })}
         </div>
-        <p className="scope-note">{SCOPE_NOTE}</p>
       </section>
     </>
   );

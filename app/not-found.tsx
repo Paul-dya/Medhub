@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { SCOPE_NOTE } from '@/lib/site';
 
 export default function NotFound() {
   return (
@@ -15,9 +14,6 @@ export default function NotFound() {
           搜索课程内容
         </Link>
       </div>
-      <p className="scope-note" style={{ maxWidth: 560, margin: '28px auto 0' }}>
-        {SCOPE_NOTE}
-      </p>
     </div>
   );
 }

@@ -9,6 +9,7 @@ type Entry = {
   url: string;
   category: string;
   categoryLabel: string;
+  subcategoryLabel?: string | null;
   snippet: string;
 };
 
@@ -69,7 +70,7 @@ export default function SearchPage() {
             <Link href={e.url}>{e.title}</Link>
           </h3>
           <p>
-            <span className="cat">{e.categoryLabel}</span>
+            <span className="cat">{e.subcategoryLabel || e.categoryLabel}</span>
             {e.snippet}
           </p>
         </div>

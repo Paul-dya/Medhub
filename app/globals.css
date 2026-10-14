@@ -190,8 +190,13 @@ a:hover {
   gap: 18px;
 }
 
+.card-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media (max-width: 860px) {
-  .card-grid {
+  .card-grid,
+  .card-grid-2 {
     grid-template-columns: 1fr;
   }
 }
@@ -486,4 +491,34 @@ a:hover {
   font-size: 64px;
   font-weight: 800;
   color: var(--accent);
+}
+
+/* ===== 小红书角标（右下角悬浮） ===== */
+.xhs-badge {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  background: #ff2442;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 6px 18px rgba(255, 36, 66, 0.35);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.xhs-badge:hover {
+  background: #e01e3a;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.xhs-icon {
+  font-size: 15px;
 }
