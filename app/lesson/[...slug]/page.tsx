@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { CATEGORIES, SUBCATEGORY_NAMES } from '@/lib/site';
 import { getLessons } from '@/lib/lessons';
+import FullscreenToggle from '@/components/fullscreen-toggle';
 
 type Params = { params: Promise<{ slug: string[] }> };
 
@@ -32,14 +33,17 @@ export default async function LessonPage({ params }: Params) {
     : catName;
 
   return (
-    <div className="container lesson-wrap">
+    <div className="container lesson-wrap" id="lesson-root">
       <div className="lesson-bar">
         <Link className="back-link" href={`/course/${lesson.category}`}>
           ← 返回{backName}
         </Link>
-        <Link className="back-link" href="/search">
-          🔍 站内搜索
-        </Link>
+        <div className="lesson-bar-actions">
+          <Link className="back-link" href="/search">
+            🔍 站内搜索
+          </Link>
+          <FullscreenToggle targetId="lesson-root" />
+        </div>
       </div>
       <h1 className="lesson-title">{lesson.title}</h1>
       <iframe className="lesson-frame" src={lesson.fileUrl} title={lesson.title} />

@@ -368,6 +368,57 @@ a:hover {
   margin-bottom: 10px;
 }
 
+.lesson-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fs-btn {
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border: none;
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-family: inherit;
+}
+
+.fs-btn:hover {
+  background: #d2e8e4;
+}
+
+/* 全屏状态：阅读区撑满整个浏览器窗口 */
+#lesson-root:fullscreen {
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 0;
+}
+
+#lesson-root:fullscreen .lesson-bar {
+  padding: 10px 20px 0;
+  margin-bottom: 0;
+}
+
+#lesson-root:fullscreen .lesson-title {
+  margin: 8px 20px 10px;
+  font-size: 18px;
+}
+
+#lesson-root:fullscreen .lesson-frame {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
 .back-link {
   font-size: 14px;
 }
